@@ -30,10 +30,10 @@ function DocxNode({ data }: DocxNodeProps) {
         setLoading(true);
         const formData = new FormData();
         // Using type assertion to bypass null check
+        const userId = localStorage.getItem("pid");
         formData.append('file', file as File);
-        formData.append('text', "1234");
-
-        fetch('https://veer.echoblock.online/rag/upload', {
+        formData.append('text', String(userId));
+        fetch('https://veer.echoblock.online/rag/upload/', {
             method: 'POST',
             body: formData
         })

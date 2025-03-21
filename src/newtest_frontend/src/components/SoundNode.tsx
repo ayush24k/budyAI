@@ -30,10 +30,11 @@ function SoundNode({ data }: DocxNodeProps) {
         setLoading(true);
         const formData = new FormData();
         // Using type assertion to bypass null check
+        const userId = localStorage.getItem("pid");
         formData.append('file', file as File);
-        formData.append('user', "1234");
+        formData.append('user', String(userId));
 
-        fetch('https://veer.echoblock.online/rag/upload', {
+        fetch('https://veer.echoblock.online/rag/transcribe_audio/', {
             method: 'POST',
             body: formData
         })

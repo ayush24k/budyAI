@@ -26,18 +26,21 @@ function ChatNode({ data }: ChatNodeProps) {
 
     setChatHistory([...chatHistory, { message: first, type: "sent" }]);
 
-    fetch('https://veer.echoblock.online/rag/chat', {
+    const userId = localStorage.getItem("pid");
+
+    fetch('https://veer.echoblock.online/rag/chat/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             // Add any additional headers if needed
             // 'Authorization': 'Bearer YOUR_TOKEN_HERE',
           },
-          body: JSON.stringify({question:first,user:"1234"})
+          body: JSON.stringify({question:first,user:userId})
     })
         .then(response => response.json())
         .then((data: any) => {
-            setChatHistory([...chatHistory, { message: data, type: "sent-not" }]);
+            console.log("data",data)
+            setChatHistory([...chatHistory, { message: data?.answer, type: "sent-not" }]);
         })
         .catch((error: any) => { // Using any for error type
 

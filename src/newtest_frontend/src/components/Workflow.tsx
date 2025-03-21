@@ -53,8 +53,8 @@ export default function Workflow() {
     }
 
     return (
-        <div className="flex justify-center py-[80px] px-[12px] gap-8 bg-slate-900 container flex-wrap lg:flex-nowrap">
-            <div className="bg-slate-700 p-5 rounded-sm flex flex-col gap-[30px] items-center">
+        <div className="flex justify-center py-[80px] px-[12px] gap-8 bg-slate-900 h-screen flex-wrap lg:flex-nowrap">
+            <div className="bg-slate-700 p-5 rounded-sm w-[350px]">
                 <div className="flex flex-col pt-2 gap-2">
                     {/* <div className="flex flex-col gap-2 border-[1px] rounded-sm p-3">
                         <input type="text" className="rounded-sm p-1 text-slate-900 bg-white" placeholder="enter node name" onChange={(e) => setNodeName(e.target.value)} />

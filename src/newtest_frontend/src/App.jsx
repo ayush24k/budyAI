@@ -49,7 +49,7 @@ function App() {
 
   useEffect(() => {
     if (principalID) {
-      
+      localStorage.setItem("pid", principalID)
       setLoggedIn(true);
     }
   }, [principalID])
@@ -59,7 +59,6 @@ function App() {
     try {
       await authClient.logout();
       setLoggedIn(false);
-      setPrinccipalID("");
     } catch (error) {
       console.log(error);
     }
